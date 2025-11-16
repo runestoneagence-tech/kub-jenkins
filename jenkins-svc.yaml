@@ -9,7 +9,7 @@ spec:
   selector:
     app: jenkins
   ports:
-    - protocol: TCP
-      port: 8080       # Port interne dans le cluster
-      targetPort: 8080 # Port du container
-  type: ClusterIP      # Accessible depuis d'autres pods seulement
+    - port: 8080        # Port interne du service
+      targetPort: 8080  # Port du container Jenkins
+      nodePort: 30080   # Port exposé sur le node
+      protocol: TCP     # Optionnel, TCP par défaut
